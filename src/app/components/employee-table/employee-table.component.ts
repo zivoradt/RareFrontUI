@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { EmployeeService } from '../../services/employee.service';
-
+import { ChartService } from '../../services/chart.service';
 import { EmployeeEntry } from '../../model/employeEntry';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -24,12 +24,16 @@ export class EmployeeTableComponent implements OnInit {
   displayedColumns: string[] = ['name', 'totalHours'];
   loading = true;
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private chartService: ChartService
+  ) {}
 
   ngOnInit(): void {
     this.employeeService.getEmployeeData().subscribe({
       next: (data: EmployeeEntry[]) => {
         this.employees = this.employeeService.processEmployeeData(data);
+        this.createChart();
         this.loading = false;
       },
       error: (err) => {
@@ -41,5 +45,18 @@ export class EmployeeTableComponent implements OnInit {
 
   isUnder100Hours(employee: Employee): boolean {
     return employee.totalHours < 100;
+  }
+
+  createChart(): void {
+    try {
+      const names = this.employees.map((employee) => employee.name);
+      const hours = this.employees.map((employee) => employee.totalHours);
+      const colors = this.chartService.generateColors(hours.length);
+
+      this.chartService.createPieChart('piechart', names, hours, colors);
+      this.chartService.createPieChart('piechart', names, hours, colors);
+    } catch (error) {
+      console.error('Error creating chart:', error);
+    }
   }
 }

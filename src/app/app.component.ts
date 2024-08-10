@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterOutlet } from '@angular/router';
 import { provideCharts } from 'ng2-charts';
+import { NgxEchartsDirective, provideEcharts } from 'ngx-echarts';
 import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
 import { HttpClientModule } from '@angular/common/http';
 

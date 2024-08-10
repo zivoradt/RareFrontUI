@@ -22,7 +22,7 @@ export class EmployeeService {
     const employeeMap: { [name: string]: number } = {};
 
     data.forEach((entry) => {
-      const name = entry.EmployeeName || 'No name';
+      const name = entry.EmployeeName || 'No name'; // Set 'No name' if null or undefined
       const hours = this.calculateTotalHours(entry);
       if (employeeMap[name]) {
         employeeMap[name] += hours;
@@ -34,7 +34,7 @@ export class EmployeeService {
     return Object.keys(employeeMap)
       .map((name) => ({
         name,
-        totalHours: Math.round(employeeMap[name]),
+        totalHours: Math.round(employeeMap[name]), // Round to nearest whole number
       }))
       .sort((a, b) => b.totalHours - a.totalHours);
   }
@@ -42,6 +42,6 @@ export class EmployeeService {
   private calculateTotalHours(entry: EmployeeEntry): number {
     const start = new Date(entry.StarTimeUtc).getTime();
     const end = new Date(entry.EndTimeUtc).getTime();
-    return (end - start) / (1000 * 60 * 60);
+    return (end - start) / (1000 * 60 * 60); // Convert milliseconds to hours
   }
 }

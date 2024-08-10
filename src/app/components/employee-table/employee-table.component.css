@@ -1,0 +1,106 @@
+mat-card {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.highlight {
+  background-color: #ffcccc; /* Light red */
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-header-cell,
+td.mat-cell {
+  padding: 8px;
+}
+.highlight {
+  background-color: #f8d7da;
+}
+
+.employee-table {
+  margin-bottom: 20px;
+}
+
+.pie-chart {
+  display: flex;
+  justify-content: center;
+}
+canvas {
+  display: block;
+  width: 100% !important;
+  height: 400px !important; /* or any height that fits your layout */
+}
+.chart-container {
+  width: 100%;
+  height: 400px; /* or any size you need */
+}
+mat-card {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.highlight {
+  background-color: #ffcccc; /* Light red */
+}
+
+table {
+  width: 100%;
+}
+/* Style for table cells with less than 100 hours */
+.under-100-hours {
+  color: red;
+  font-weight: bold;
+}
+
+/* Optional: Style for the loading spinner */
+.loading-spinner {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+th.mat-header-cell,
+td.mat-cell {
+  padding: 8px;
+}
+/* Style for table cells with less than 100 hours */
+.under-100-hours {
+  color: red;
+  font-weight: bold;
+}
+
+/* Optional: Style for the loading spinner */
+.loading-spinner {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.under-100-hours {
+  color: red;
+  font-weight: bold;
+}
+
+#piechart {
+  max-width: 400px;
+  margin: 0 auto;
+}
+/* Style for rows with less than 100 hours */
+.under-100-hours {
+  background-color: red;
+  color: white; /* Optional: change text color to white for better readability */
+}
+
+/* Optional: Style for the loading spinner */
+.loading-spinner {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  color: #555;
+}
